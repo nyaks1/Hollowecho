@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://c17ex7viy04pg"]
+
+[ext_resource type="Script" uid="uid://b5or58c16h5lq" path="res://scripts/player/bat_controller.gd" id="1_80ydg"]
+[ext_resource type="Texture2D" uid="uid://dn36xddikt4nh" path="res://assets/player/Bat/Dead/Bat_Dead_0.png" id="1_dqbxl"]
+[ext_resource type="Texture2D" uid="uid://b3bcmltxn410e" path="res://assets/player/Bat/Fall/Bat_Fall_2.png" id="2_80ydg"]
+[ext_resource type="Texture2D" uid="uid://hlrcavefbv6y" path="res://assets/player/Bat/Fall/Bat_Fall_0.png" id="3_7otx1"]
+[ext_resource type="Texture2D" uid="uid://dggcddk0pqip4" path="res://assets/player/Bat/Fall/Bat_Fall_1.png" id="4_fjysm"]
+[ext_resource type="Texture2D" uid="uid://dnu1gojn6r3xi" path="res://assets/player/Bat/Fly/Bat_Fly_0.png" id="5_d8svk"]
+[ext_resource type="Texture2D" uid="uid://bhtvwmbq03o5j" path="res://assets/player/Bat/Fly/Bat_Fly_1.png" id="6_t4xup"]
+[ext_resource type="Texture2D" uid="uid://dcmpbrtc2lsut" path="res://assets/player/Bat/Fly/Bat_Fly_2.png" id="7_4dnaa"]
+[ext_resource type="Texture2D" uid="uid://dbtsbdlitjkdu" path="res://assets/player/Bat/Fly/Bat_Fly_3.png" id="8_0qthc"]
+[ext_resource type="Texture2D" uid="uid://cj5gyquusb2ee" path="res://assets/player/Bat/Idle/Bat_Idle_1.png" id="9_yv0bn"]
+[ext_resource type="Texture2D" uid="uid://dh1d4ind63d5d" path="res://assets/player/Bat/Idle/Bat_Idle_0.png" id="10_0b0mw"]
+[ext_resource type="Script" uid="uid://c0nr5mdp5413l" path="res://scripts/player/bat_animation.gd" id="12_7otx1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_126ht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dqbxl")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_80ydg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7otx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fjysm")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d8svk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t4xup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4dnaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0qthc")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_yv0bn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0b0mw")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_80ydg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fjysm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7otx1")
+}],
+"loop": 1,
+"name": &"land",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_126ht"]
+size = Vector2(31, 34)
+
+[node name="bat" type="CharacterBody2D" unique_id=1479203133 node_paths=PackedStringArray("batAnimation")]
+scale = Vector2(3, 3)
+script = ExtResource("1_80ydg")
+batAnimation = NodePath("bat_animation")
+
+[node name="bat_animation" type="AnimatedSprite2D" parent="." unique_id=1013626824]
+sprite_frames = SubResource("SpriteFrames_126ht")
+animation = &"fall"
+script = ExtResource("12_7otx1")
+
+[node name="bat_collision_area" type="CollisionShape2D" parent="." unique_id=1526826975]
+position = Vector2(3.5, 10)
+shape = SubResource("RectangleShape2D_126ht")
+
+[connection signal="animation_looped" from="bat_animation" to="bat_animation" method="_on_animation_looped"]
