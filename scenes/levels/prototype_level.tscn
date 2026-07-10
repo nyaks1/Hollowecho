@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c17ex7viy04pg" path="res://scenes/player/bat.tscn" id="1_bwbut"]
 [ext_resource type="Texture2D" uid="uid://bynsfir5nwrk4" path="res://assets/environment/placeholder block.jpg" id="2_bls32"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://gnttf5fm40xi" path="res://light-and-shadow/light-and-shadow.tscn" id="2_hg8qc"]
+=======
+[ext_resource type="PackedScene" uid="uid://bcqdldppy7h1n" path="res://scenes/enemy/enemy.tscn" id="3_hg8qc"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_126ht"]
 size = Vector2(424, 248)
@@ -56,6 +60,11 @@ shape = SubResource("RectangleShape2D_126ht")
 position = Vector2(22, 233)
 texture = ExtResource("2_bls32")
 
+<<<<<<< Updated upstream
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=390343049]
 modulate = Color(0.19434929, 0.19434926, 0.19434926, 1)
 color = Color(0, 0, 0, 1)
+=======
+[node name="enemy" parent="." unique_id=871129061 instance=ExtResource("3_hg8qc")]
+position = Vector2(393, -11)
+>>>>>>> Stashed changes
