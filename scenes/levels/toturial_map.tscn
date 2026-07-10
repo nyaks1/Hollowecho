@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dnoslo6vbh668" path="res://assets/map_level/Tiny-Forest-Tileset-Platformer-Pixel-Art2.webp" id="7_6i1cg"]
 [ext_resource type="Texture2D" uid="uid://cybghird2hivd" path="res://assets/caveBG.jpg" id="8_d31bw"]
 [ext_resource type="PackedScene" uid="uid://gnttf5fm40xi" path="res://light-and-shadow/light-and-shadow.tscn" id="9_6i1cg"]
-[ext_resource type="AudioStream" uid="uid://b408fg1ywovmk" path="res://assets/audio/516566__kinoton__dark-dungeon-ambience.wav" id="11_p5lly"]
-[ext_resource type="AudioStream" uid="uid://7k4py5gc6tyo" path="res://assets/audio/561364__geararcanano37__wing-flap-heavy-prototype.mp3" id="12_0yh0l"]
+[ext_resource type="AudioStream" uid="uid://vo0vqe3vjda2" path="res://assets/audio/516566__kinoton__dark-dungeon-ambience.wav" id="11_p5lly"]
+[ext_resource type="AudioStream" uid="uid://4p8gv057jxgb" path="res://assets/audio/561364__geararcanano37__wing-flap-heavy-prototype.ogg" id="12_0yh0l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d31bw"]
 texture = ExtResource("1_cx8gf")
@@ -10056,7 +10056,6 @@ bus = &"background music"
 stream = ExtResource("12_0yh0l")
 autoplay = true
 bus = &"Flapping"
-parameters/looping = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1270642916]
 visible = false
