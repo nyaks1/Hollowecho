@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		self.play("idle")
 	else:
 		landed = false
-		self.speed_scale = 0.7 
+		self.speed_scale = 1
 		self.play("fly")
 		
 

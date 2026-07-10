@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctyxeumyol1pn"
+path="res://.godot/imported/JDSherbert - Ultimate UI SFX Pack - Swipe - 1.mp3-6d01bcfed2a343a6531e75ee91219cc6.mp3str"
+
+[deps]
+
+source_file="res://assets/UI/JDSherbert - Ultimate UI SFX Pack (FREE)/JDSherbert - Ultimate UI SFX Pack (FREE)/Stereo/mp3/JDSherbert - Ultimate UI SFX Pack - Swipe - 1.mp3"
+dest_files=["res://.godot/imported/JDSherbert - Ultimate UI SFX Pack - Swipe - 1.mp3-6d01bcfed2a343a6531e75ee91219cc6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

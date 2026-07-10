@@ -13,6 +13,7 @@ position = Vector2(5, 9)
 
 [node name="Camera2D" type="Camera2D" parent="bat" unique_id=339753401]
 position = Vector2(-5, -9)
+position_smoothing_enabled = true
 
 [node name="ground blocks" type="Node2D" parent="." unique_id=1475826706]
 

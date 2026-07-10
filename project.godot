@@ -13,7 +13,6 @@ config_version=5
 config/name="Hollowecho"
 run/main_scene="uid://dtpd3qbiycckh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://umts3gk2m2vn"]
+
+[ext_resource type="Texture2D" uid="uid://dynyfenb051v7" path="res://assets/player/Bat/Bat.png" id="2_jcvkx"]
+[ext_resource type="Texture2D" uid="uid://cjq5ulul7iay3" path="res://assets/UI/Pixel UI pack 3/00.png" id="3_201h0"]
+[ext_resource type="Texture2D" uid="uid://cklrfbrlhip36" path="res://assets/UI/logo.png" id="4_1y4tv"]
+[ext_resource type="Texture2D" uid="uid://s6iysb3u3li2" path="res://assets/UI/Parallax_Backgrounds_Cave/0.png" id="6_0xare"]
+
+[node name="Start_menu" type="CanvasLayer" unique_id=97410865]
+
+[node name="Backround" type="Sprite2D" parent="." unique_id=261706036]
+position = Vector2(578, 323.5)
+scale = Vector2(3.010417, 3.0138888)
+texture = ExtResource("6_0xare")
+flip_v = true
+
+[node name="bat_icon" type="Sprite2D" parent="." unique_id=1747289856]
+modulate = Color(0.28099632, 0.27555004, 0.25473645, 1)
+light_mask = 0
+position = Vector2(350.99994, 522)
+scale = Vector2(-1.5839642, 1.4733361)
+texture = ExtResource("2_jcvkx")
+
+[node name="Control" type="Control" parent="." unique_id=379580169]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="button_container" type="BoxContainer" parent="Control" unique_id=941197191]
+layout_mode = 0
+offset_left = 321.99997
+offset_top = 300.0
+offset_right = 367.99997
+offset_bottom = 331.0
+scale = Vector2(3.49, 2.515)
+
+[node name="button" type="Button" parent="Control/button_container" unique_id=1681204629]
+layout_mode = 2
+text = "Start
+"
+flat = true
+
+[node name="button_texture" type="Sprite2D" parent="Control/button_container/button" unique_id=1752263507]
+position = Vector2(23.495722, 15.506954)
+scale = Vector2(1.56, 2.23)
+texture = ExtResource("3_201h0")
+region_enabled = true
+region_rect = Rect2(79.65694, 16.935328, 32.784637, 14.115612)
+
+[node name="button_container2" type="BoxContainer" parent="Control" unique_id=405076388]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 298.0
+offset_right = 691.0
+offset_bottom = 329.0
+scale = Vector2(3.49, 2.515)
+
+[node name="button" type="Button" parent="Control/button_container2" unique_id=1561200478]
+layout_mode = 2
+text = "Start
+"
+flat = true
+
+[node name="button_texture" type="Sprite2D" parent="Control/button_container2/button" unique_id=423354607]
+position = Vector2(21.698, 17.578)
+scale = Vector2(1.56, 2.23)
+texture = ExtResource("3_201h0")
+region_enabled = true
+region_rect = Rect2(80.42587, 17.666672, 30.78949, 14)
+
+[node name="Start" type="Label" parent="Control" unique_id=1155124538]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 305.0
+offset_right = 381.0
+offset_bottom = 328.0
+scale = Vector2(2.954999, 2.714999)
+theme_override_colors/font_color = Color(0.5568628, 0.5568628, 0.5568628, 1)
+text = "Start"
+
+[node name="Exit" type="Label" parent="Control" unique_id=1256399974]
+layout_mode = 0
+offset_left = 674.0
+offset_top = 303.0
+offset_right = 712.0
+offset_bottom = 352.0
+scale = Vector2(2.9949977, 2.755)
+theme_override_colors/font_color = Color(0.5568628, 0.5568628, 0.5568628, 1)
+text = "Exit"
+
+[node name="logo" type="Sprite2D" parent="." unique_id=1578883817]
+position = Vector2(566, 176.00002)
+scale = Vector2(0.41898438, 0.47206873)
+texture = ExtResource("4_1y4tv")
