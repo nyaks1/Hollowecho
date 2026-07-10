@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://gnttf5fm40xi"]
+
+[ext_resource type="Script" uid="uid://daonatw8dk4ou" path="res://scenes/levels/point_light_2d.gd" id="1_7sevo"]
+
+[sub_resource type="Gradient" id="Gradient_bls32"]
+offsets = PackedFloat32Array(0, 0.6084906)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3apfc"]
+gradient = SubResource("Gradient_bls32")
+width = 84
+height = 84
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="LightAndShadow" type="Node2D" unique_id=759088515]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=239953302]
+position = Vector2(5.6972613, -5.17272)
+scale = Vector2(1.8643508, 1.5118324)
+energy = 1.73
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_3apfc")
+script = ExtResource("1_7sevo")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="PointLight2D" unique_id=524991584]
+visible = false
+position = Vector2(-1.4466196, 4.682822)
+scale = Vector2(0.18082745, 0.22299154)
+color = Color(0.14586785, 0.14586785, 0.14586785, 1)
+energy = 1.45
