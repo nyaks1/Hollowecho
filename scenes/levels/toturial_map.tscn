@@ -10040,8 +10040,10 @@ limit_enabled = false
 position_smoothing_enabled = true
 
 [node name="LightAndShadow" parent="bat/Camera2D" unique_id=759088515 instance=ExtResource("9_6i1cg")]
-position = Vector2(-12.962959, -16.666668)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-12.962959, -9.536743e-07)
+rotation = -1.2304571
+scale = Vector2(0.6, 0.6)
+skew = 0.45204028
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1270642916]
 color = Color(0, 0, 0, 1)
