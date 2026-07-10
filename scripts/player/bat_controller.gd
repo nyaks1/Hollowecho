@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-
+@onready var flap_sound: AudioStreamPlayer = $FlapSound 
 @export var batAnimation = AnimatedSprite2D
 const SPEED = 150.0
 const flapStrength = -200.0
+var was_flapping = false 
 var flap = false
 var left = false
 var right = false
@@ -20,6 +21,10 @@ func _physics_process(delta: float) -> void:
 		flap = true
 	else:
 		flap = false
+		
+	if flap and not was_flapping:
+		flap_sound.play()
+	was_flapping = flap
 		
 	updateAnimations()
 	move_and_slide()
