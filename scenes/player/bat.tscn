@@ -81,20 +81,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_126ht"]
-size = Vector2(31, 34)
+size = Vector2(13.333334, 30.666668)
 
-[node name="bat" type="CharacterBody2D" unique_id=1479203133 node_paths=PackedStringArray("batAnimation")]
+[node name="bat" type="CharacterBody2D" unique_id=1479203133]
 scale = Vector2(3, 3)
 script = ExtResource("1_80ydg")
-batAnimation = NodePath("bat_animation")
 
 [node name="bat_animation" type="AnimatedSprite2D" parent="." unique_id=1013626824]
 sprite_frames = SubResource("SpriteFrames_126ht")
-animation = &"fall"
+animation = &"fly"
 script = ExtResource("12_7otx1")
 
 [node name="bat_collision_area" type="CollisionShape2D" parent="." unique_id=1526826975]
-position = Vector2(3.5, 10)
+position = Vector2(-2.666667, 8.333334)
 shape = SubResource("RectangleShape2D_126ht")
 
 [connection signal="animation_looped" from="bat_animation" to="bat_animation" method="_on_animation_looped"]

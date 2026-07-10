@@ -1,8 +1,8 @@
 extends CharacterBody2D
 @onready var flap_sound: AudioStreamPlayer = $FlapSound 
 @onready var sprite: AnimatedSprite2D = get_child(0) 
-const SPEED = 150.0
-const flapStrength = -200.0
+const SPEED = 4000
+const flapStrength = -4000.0
 const FLAP_SOUND_WINDOW = 0.25  # sound stays "armed" this long after last flap input
 var flap = false
 var flap_timer = 0.0
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y = get_gravity().y * delta * 4
+		velocity.y = get_gravity().y * delta * 3
 
 	handleInput(delta)
 
@@ -32,15 +32,15 @@ func handleInput(delta: float) -> void:
 	right = Input.is_key_label_pressed(KEY_D)
 
 	if Input.is_action_pressed("ui_accept"):  # UNCHANGED — your original held control, restored
-		velocity.y = flapStrength
+		velocity.y = flapStrength * delta
 		flap_timer = FLAP_SOUND_WINDOW  # keeps re-topping-up while held, and lingers briefly after release
 
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction and !is_on_floor():
-		velocity.x = direction * SPEED
-	elif !direction and (right or left) and !is_on_floor():
-		if left: velocity.x = -SPEED 
-		else: velocity.x = SPEED
+	if direction:
+		velocity.x = direction * SPEED * delta
+	elif !direction and (right or left):
+		if left: velocity.x = -SPEED * delta
+		else: velocity.x = SPEED * delta
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED/25)
 
@@ -51,10 +51,14 @@ func updateAnimations() -> void:
 		sprite.isFlapping = false
 		
 	if velocity.x > 0:
+		sprite.isMoving = true
 		sprite.flipSprite = true
 	elif velocity.x < 0: 
+		sprite.isMoving = true
 		sprite.flipSprite = false
-		
+	else:
+		sprite.isMoving = false
+	
 	if is_on_floor():
 		sprite.isOnFloor = true
 	else:

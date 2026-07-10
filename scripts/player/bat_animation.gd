@@ -4,6 +4,7 @@ var flipSprite = false
 var landed = false
 var isFlapping:bool = false
 var isOnFloor = false
+var isMoving = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.play("fly")
@@ -26,14 +27,23 @@ func _process(delta: float) -> void:
 		if flip_v:
 			flip_v = false
 		self.play("fly")
-	elif isOnFloor and !landed:
+	elif isOnFloor and isMoving:
+		self.speed_scale = 2.5
+		landed = false
+		if flip_v:
+			flip_v = false
+		self.play("fly")
+	elif isOnFloor and !landed and !isMoving:
 		self.speed_scale = 2
 		self.flip_v = true
 		self.play("land")
 	elif landed and isOnFloor:
+		self.flip_v = true
 		self.speed_scale = 0.7
 		self.play("idle")
 	else:
+		if flip_v:
+			flip_v = false
 		landed = false
 		self.speed_scale = 1
 		self.play("fly")

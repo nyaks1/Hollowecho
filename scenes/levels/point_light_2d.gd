@@ -3,8 +3,11 @@ extends PointLight2D
 @onready var original_scale: float = texture_scale
 var is_active: bool = false
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("my_action") and not is_active:
+func _process(delta: float) -> void:
+	unhandled_input()
+
+func unhandled_input() -> void:
+	if Input.is_key_label_pressed(KEY_W) and not is_active:
 		is_active = true
 		
 		# Create a single sequential tween chain
