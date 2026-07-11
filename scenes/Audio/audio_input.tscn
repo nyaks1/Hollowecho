@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dii5lrh88hh21"]
 
-[ext_resource type="Script" uid="uid://dtae5ibvpucho" path="res://scripts/Audio/audio_input.gd" id="1_k4wju"]
+[ext_resource type="Script" uid="uid://dtae5ibvpucho" path="res://scripts/audio/audio_input.gd" id="1_k4wju"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_j3pel"]
 
 [node name="AudioInput" type="AudioStreamPlayer" unique_id=1500368234]
 stream = SubResource("AudioStreamMicrophone_j3pel")
+stream_paused = true
 script = ExtResource("1_k4wju")

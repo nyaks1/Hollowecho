@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dnoslo6vbh668" path="res://assets/map_level/Tiny-Forest-Tileset-Platformer-Pixel-Art2.webp" id="7_6i1cg"]
 [ext_resource type="Texture2D" uid="uid://cybghird2hivd" path="res://assets/caveBG.jpg" id="8_d31bw"]
 [ext_resource type="PackedScene" uid="uid://gnttf5fm40xi" path="res://light-and-shadow/light-and-shadow.tscn" id="9_6i1cg"]
+[ext_resource type="PackedScene" uid="uid://dphjri08eesju" path="res://scenes/environment/guide_post.tscn" id="10_y74aw"]
 [ext_resource type="AudioStream" uid="uid://vo0vqe3vjda2" path="res://assets/audio/516566__kinoton__dark-dungeon-ambience.wav" id="11_p5lly"]
 [ext_resource type="AudioStream" uid="uid://4p8gv057jxgb" path="res://assets/audio/561364__geararcanano37__wing-flap-heavy-prototype.ogg" id="12_0yh0l"]
 [ext_resource type="PackedScene" uid="uid://dii5lrh88hh21" path="res://scenes/Audio/audio_input.tscn" id="13_pf03k"]
@@ -10036,6 +10037,9 @@ layer_1/tile_data = PackedInt32Array(196600, 5, 1, 131065, 65541, 0, 196601, 655
 [node name="GlowBerry" parent="TileMap" unique_id=1381654064 instance=ExtResource("15_y74aw")]
 position = Vector2(-142, -42)
 
+[node name="guidePost" parent="." unique_id=1680932987 instance=ExtResource("10_y74aw")]
+position = Vector2(27.000008, -18.000002)
+
 [node name="bat" parent="." unique_id=1479203133 instance=ExtResource("1_oxqu5")]
 position = Vector2(-196, -11)
 scale = Vector2(0.6, 0.6)
@@ -10067,4 +10071,5 @@ color = Color(0, 0, 0, 1)
 [node name="AudioInput" parent="." unique_id=1500368234 instance=ExtResource("13_pf03k")]
 stream = SubResource("AudioStreamMicrophone_j3pel")
 autoplay = true
+stream_paused = false
 script = null

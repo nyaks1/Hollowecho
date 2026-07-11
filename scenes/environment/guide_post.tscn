@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dphjri08eesju"]
+
+[ext_resource type="Texture2D" uid="uid://dr6n2ecs8jdlf" path="res://assets/environment/statues_aseprite.png" id="1_cipx6"]
+[ext_resource type="PackedScene" uid="uid://gnttf5fm40xi" path="res://light-and-shadow/light-and-shadow.tscn" id="2_eo5yd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_126ht"]
+size = Vector2(40, 68)
+
+[node name="guidePost" type="Node2D" unique_id=1680932987]
+modulate = Color(0.35406289, 0.35406289, 0.35406286, 1)
+scale = Vector2(0.65, 0.65)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=830380511]
+texture = ExtResource("1_cipx6")
+region_enabled = true
+region_rect = Rect2(702.1104, 195.04382, 50.5885, 79.13849)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=328645491]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=103453064]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_126ht")
+
+[node name="LightAndShadow" parent="." unique_id=759088515 instance=ExtResource("2_eo5yd")]
+scale = Vector2(0.615, 1.485)
