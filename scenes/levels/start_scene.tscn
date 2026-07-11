@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b31gjf3wct88g"]
+
+[ext_resource type="VideoStream" uid="uid://dqitrk58dbrbk" path="res://assets/video/Hollowecho Intro .ogv" id="1_jsgc8"]
+
+[node name="Main" type="Node2D" unique_id=909674008]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1096572380]
+offset_left = -959.0
+offset_top = -541.0
+offset_right = 961.0
+offset_bottom = 539.0
+stream = ExtResource("1_jsgc8")
+autoplay = true
+loop = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1346850025]
+zoom = Vector2(0.6, 0.6)
