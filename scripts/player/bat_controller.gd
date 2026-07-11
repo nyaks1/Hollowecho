@@ -1,8 +1,8 @@
 extends CharacterBody2D
 @onready var flap_sound: AudioStreamPlayer = $FlapSound 
 @onready var sprite: AnimatedSprite2D = get_child(0) 
-const SPEED = 4000
-const flapStrength = -4000.0
+const SPEED = 20000
+const flapStrength = -22000.0
 const FLAP_SOUND_WINDOW = 0.25  # sound stays "armed" this long after last flap input
 var flap = false
 var flap_timer = 0.0
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y = get_gravity().y * delta * 3
+		velocity.y = get_gravity().y * delta * 7
 
 	handleInput(delta)
 

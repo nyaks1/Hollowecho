@@ -10050,13 +10050,10 @@ skew = 0.45204028
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="bat" unique_id=293338773]
 stream = ExtResource("11_p5lly")
 autoplay = true
-bus = &"background music"
 
 [node name="FlapSound" type="AudioStreamPlayer" parent="bat" unique_id=90589586]
 stream = ExtResource("12_0yh0l")
 autoplay = true
-bus = &"Flapping"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1270642916]
-visible = false
 color = Color(0, 0, 0, 1)
