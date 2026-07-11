@@ -109,7 +109,9 @@ func trigger_sonar() -> void:
 func updateHungerBar(delta: float):
 	hunger_percentage -= delta * 2
 	
-	if hunger_percentage <= 1:
+	if hunger_percentage < 2:
+		hunger_bar.set_frame_and_progress(4,0)
+	elif hunger_percentage <= 25:
 		hunger_bar.set_frame_and_progress(3,0)
 	elif hunger_percentage <= 50:
 		hunger_bar.set_frame_and_progress(2,0)

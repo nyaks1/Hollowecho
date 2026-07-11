@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://umts3gk2m2vn"]
 
+[ext_resource type="Script" uid="uid://bldtjxoyukklg" path="res://scripts/levels/start_menu.gd" id="1_4fmqt"]
 [ext_resource type="Texture2D" uid="uid://dynyfenb051v7" path="res://assets/player/Bat/Bat.png" id="2_jcvkx"]
 [ext_resource type="Texture2D" uid="uid://cjq5ulul7iay3" path="res://assets/UI/Pixel UI pack 3/00.png" id="3_201h0"]
 [ext_resource type="Texture2D" uid="uid://cklrfbrlhip36" path="res://assets/UI/logo.png" id="4_1y4tv"]
 [ext_resource type="Texture2D" uid="uid://s6iysb3u3li2" path="res://assets/UI/Parallax_Backgrounds_Cave/0.png" id="6_0xare"]
 
 [node name="Start_menu" type="CanvasLayer" unique_id=97410865]
+script = ExtResource("1_4fmqt")
 
 [node name="Backround" type="Sprite2D" parent="." unique_id=261706036]
 position = Vector2(578, 323.5)
@@ -34,13 +36,13 @@ offset_right = 367.99997
 offset_bottom = 331.0
 scale = Vector2(3.49, 2.515)
 
-[node name="button" type="Button" parent="Control/button_container" unique_id=1681204629]
+[node name="button1" type="Button" parent="Control/button_container" unique_id=1681204629]
 layout_mode = 2
 text = "Start
 "
 flat = true
 
-[node name="button_texture" type="Sprite2D" parent="Control/button_container/button" unique_id=1752263507]
+[node name="button_texture" type="Sprite2D" parent="Control/button_container/button1" unique_id=1752263507]
 position = Vector2(23.495722, 15.506954)
 scale = Vector2(1.56, 2.23)
 texture = ExtResource("3_201h0")
@@ -55,13 +57,13 @@ offset_right = 691.0
 offset_bottom = 329.0
 scale = Vector2(3.49, 2.515)
 
-[node name="button" type="Button" parent="Control/button_container2" unique_id=1561200478]
+[node name="button2" type="Button" parent="Control/button_container2" unique_id=1561200478]
 layout_mode = 2
 text = "Start
 "
 flat = true
 
-[node name="button_texture" type="Sprite2D" parent="Control/button_container2/button" unique_id=423354607]
+[node name="button_texture" type="Sprite2D" parent="Control/button_container2/button2" unique_id=423354607]
 position = Vector2(21.698, 17.578)
 scale = Vector2(1.56, 2.23)
 texture = ExtResource("3_201h0")
@@ -92,3 +94,6 @@ text = "Exit"
 position = Vector2(566, 176.00002)
 scale = Vector2(0.41898438, 0.47206873)
 texture = ExtResource("4_1y4tv")
+
+[connection signal="pressed" from="Control/button_container/button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Control/button_container2/button2" to="." method="_on_button_2_pressed"]
