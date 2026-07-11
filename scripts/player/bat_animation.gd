@@ -19,8 +19,6 @@ func _process(delta: float) -> void:
 	else:
 		self.flip_h = false
 	
-	
-	
 	if isFlapping:
 		self.speed_scale = 2.5
 		landed = false

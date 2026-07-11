@@ -1,5 +1,8 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://der2pmm2xuiq4"]
 
+[sub_resource type="AudioEffectRecord" id="AudioEffectRecord_j3pel"]
+resource_name = "Record"
+
 [resource]
 bus/1/name = &"background music"
 bus/1/solo = false
@@ -13,3 +16,17 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = -5.993908
 bus/2/send = &"Master"
+bus/3/name = &"play_audio_capture"
+bus/3/solo = false
+bus/3/mute = true
+bus/3/bypass_fx = false
+bus/3/volume_db = -0.021619797
+bus/3/send = &"Master"
+bus/4/name = &"audio_capture"
+bus/4/solo = false
+bus/4/mute = true
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"play_audio_capture"
+bus/4/effect/0/effect = SubResource("AudioEffectRecord_j3pel")
+bus/4/effect/0/enabled = true

@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cj5gyquusb2ee" path="res://assets/player/Bat/Idle/Bat_Idle_1.png" id="9_yv0bn"]
 [ext_resource type="Texture2D" uid="uid://dh1d4ind63d5d" path="res://assets/player/Bat/Idle/Bat_Idle_0.png" id="10_0b0mw"]
 [ext_resource type="Script" uid="uid://c0nr5mdp5413l" path="res://scripts/player/bat_animation.gd" id="12_7otx1"]
+[ext_resource type="Texture2D" uid="uid://inwteyqvghl8" path="res://assets/UI/Pixel UI pack 3/06.png" id="13_fjysm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_126ht"]
 animations = [{
@@ -83,6 +84,49 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_126ht"]
 size = Vector2(13.333334, 30.666668)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_62o0n"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(0, 96, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dmul"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(48, 96, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynnrg"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(96, 96, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ax4x"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(144, 96, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb8ol"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(192, 96, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d8svk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62o0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dmul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynnrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ax4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb8ol")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="bat" type="CharacterBody2D" unique_id=1479203133]
 scale = Vector2(3, 3)
 script = ExtResource("1_80ydg")
@@ -95,5 +139,12 @@ script = ExtResource("12_7otx1")
 [node name="bat_collision_area" type="CollisionShape2D" parent="." unique_id=1526826975]
 position = Vector2(-2.666667, 8.333334)
 shape = SubResource("RectangleShape2D_126ht")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=847762340]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1962420918]
+position = Vector2(158, 63)
+scale = Vector2(4.4, 4.4)
+sprite_frames = SubResource("SpriteFrames_d8svk")
 
 [connection signal="animation_looped" from="bat_animation" to="bat_animation" method="_on_animation_looped"]
