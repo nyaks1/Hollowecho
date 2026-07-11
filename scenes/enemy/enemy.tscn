@@ -238,6 +238,7 @@ shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1736088348]
 position = Vector2(-63, 5)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xrivr")
 animation = &"Attack"
 frame_progress = 0.33265457
