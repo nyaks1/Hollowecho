@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dh1d4ind63d5d" path="res://assets/player/Bat/Idle/Bat_Idle_0.png" id="10_0b0mw"]
 [ext_resource type="Script" uid="uid://c0nr5mdp5413l" path="res://scripts/player/bat_animation.gd" id="12_7otx1"]
 [ext_resource type="Texture2D" uid="uid://inwteyqvghl8" path="res://assets/UI/Pixel UI pack 3/06.png" id="13_fjysm"]
+[ext_resource type="AudioStream" uid="uid://4p8gv057jxgb" path="res://assets/audio/561364__geararcanano37__wing-flap-heavy-prototype.ogg" id="14_t4xup"]
+[ext_resource type="AudioStream" uid="uid://bqev6eyb60n20" path="res://assets/audio/105349__sandyrb__sonar-ping-pong-g.wav" id="15_4dnaa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_126ht"]
 animations = [{
@@ -127,6 +129,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_0qthc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_21c5p"]
+gradient = SubResource("Gradient_0qthc")
+fill = 1
+fill_to = Vector2(3, 0)
+
 [node name="bat" type="CharacterBody2D" unique_id=1479203133]
 scale = Vector2(3, 3)
 script = ExtResource("1_80ydg")
@@ -146,5 +155,18 @@ shape = SubResource("RectangleShape2D_126ht")
 position = Vector2(158, 63)
 scale = Vector2(4.4, 4.4)
 sprite_frames = SubResource("SpriteFrames_d8svk")
+
+[node name="FlapSound" type="AudioStreamPlayer" parent="." unique_id=1547795875]
+stream = ExtResource("14_t4xup")
+autoplay = true
+
+[node name="EchoLight" type="PointLight2D" parent="." unique_id=367803756]
+energy = 0.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_21c5p")
+texture_scale = 8.0
+
+[node name="SonarSound" type="AudioStreamPlayer2D" parent="." unique_id=517521786]
+stream = ExtResource("15_4dnaa")
 
 [connection signal="animation_looped" from="bat_animation" to="bat_animation" method="_on_animation_looped"]

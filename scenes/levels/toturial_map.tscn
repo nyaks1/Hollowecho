@@ -10057,7 +10057,7 @@ skew = 0.45204028
 stream = ExtResource("11_p5lly")
 autoplay = true
 
-[node name="FlapSound" type="AudioStreamPlayer" parent="bat" unique_id=90589586]
+[node name="FlapSound2" type="AudioStreamPlayer" parent="bat" unique_id=90589586]
 stream = ExtResource("12_0yh0l")
 autoplay = true
 
