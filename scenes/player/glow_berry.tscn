@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dxwq8ed8t377n"]
+
+[ext_resource type="Script" uid="uid://b6sq6x08rwuo6" path="res://scripts/environment/glow_berry.gd" id="1_8cpdh"]
+[ext_resource type="Texture2D" uid="uid://4mweat8cbtvo" path="res://assets/environment/yellow melon.png" id="1_mobr0"]
+[ext_resource type="PackedScene" uid="uid://gnttf5fm40xi" path="res://light-and-shadow/light-and-shadow.tscn" id="2_8cpdh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_126ht"]
+radius = 8.062258
+
+[node name="GlowBerry" type="Node2D" unique_id=1381654064]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_8cpdh")
+
+[node name="berrySprite" type="Sprite2D" parent="." unique_id=633827386]
+texture = ExtResource("1_mobr0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1436719792]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1481002613]
+shape = SubResource("CircleShape2D_126ht")
+
+[node name="LightAndShadow" parent="." unique_id=759088515 instance=ExtResource("2_8cpdh")]
+scale = Vector2(0.3, 0.3)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

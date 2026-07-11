@@ -247,5 +247,7 @@ frame_progress = 0.33265457
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DetectionArea" unique_id=1820123882]
 shape = SubResource("RectangleShape2D_b1lj4")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=755469014]
+
 [connection signal="body_entered" from="CharacterBody2D/DetectionArea" to="CharacterBody2D" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/DetectionArea" to="CharacterBody2D" method="_on_detection_area_body_exited"]

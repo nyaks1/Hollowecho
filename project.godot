@@ -14,6 +14,10 @@ config/name="Hollowecho"
 run/main_scene="uid://dtpd3qbiycckh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+driver/enable_input=true
+
 [display]
 
 window/stretch/mode="canvas_items"
