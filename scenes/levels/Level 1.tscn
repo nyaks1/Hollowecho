@@ -1962,6 +1962,9 @@ zoom = Vector2(2.725, 2.725)
 stream = ExtResource("2_fr5tx")
 autoplay = true
 
-[node name="FlapSound" type="AudioStreamPlayer" parent="bat" unique_id=1636277081]
+[node name="FlapSound2" type="AudioStreamPlayer" parent="bat" unique_id=1636277081]
 stream = ExtResource("3_b5w3f")
 autoplay = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=762996688]
+color = Color(0, 0, 0, 1)
