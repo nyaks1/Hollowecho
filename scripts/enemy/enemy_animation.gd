@@ -11,9 +11,10 @@ var home_position: Vector2 = Vector2.ZERO
 var target_position: Vector2 = Vector2.ZERO
 var is_chasing: bool = false
 var is_attacking: bool = false
-var player: Node2D = null
+var player: CharacterBody2D = null
 
 func _ready() -> void:
+	print(get_children())
 	sprite.play("Flying")
 	home_position = global_position
 	pick_new_target()
@@ -63,12 +64,12 @@ func _on_animation_finished() -> void:
 		is_attacking = false
 		sprite.play("Flying")
 
-func _on_detection_area_body_entered(body: Node2D) -> void:
+func _on_detection_area_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
 		player = body
 		is_chasing = true
 
-func _on_detection_area_body_exited(body: Node2D) -> void:
+func _on_detection_area_body_exited(body: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
 		is_chasing = false
 		player = null

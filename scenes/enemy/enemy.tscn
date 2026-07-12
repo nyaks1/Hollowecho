@@ -228,7 +228,7 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lj4"]
 
-[node name="enemy" type="Node2D" unique_id=871129061]
+[node name="enemy" type="CharacterBody2D" unique_id=1537871328]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1575404053]
 script = ExtResource("1_cwlon")
@@ -244,7 +244,7 @@ frame_progress = 0.33265457
 
 [node name="DetectionArea" type="Area2D" parent="CharacterBody2D" unique_id=35509146]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DetectionArea" unique_id=1820123882]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1820123882]
 shape = SubResource("RectangleShape2D_b1lj4")
 
 [connection signal="body_entered" from="CharacterBody2D/DetectionArea" to="CharacterBody2D" method="_on_detection_area_body_entered"]
