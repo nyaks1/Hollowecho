@@ -34,7 +34,7 @@ func _ready() -> void:
 	sprite.frame_changed.connect(_on_animation_frame_changed)
 	hunger_bar = $CanvasLayer/AnimatedSprite2D
 	hunger_bar.set_frame_and_progress(0,0)
-	
+	name = "bat"
 	if echo_light:
 		echo_light.energy = 0.0
 
@@ -108,8 +108,7 @@ func trigger_sonar() -> void:
 		tween.tween_property(echo_light, "energy", 0.0, 1.5).set_trans(Tween.TRANS_SINE)
 
 func updateHungerBar(delta: float):
-	var hunger_reduction = delta * 1.5
-	
+	var hunger_reduction = delta * 1.2
 	hunger_percentage = clamp(hunger_percentage - hunger_reduction, 0.0, 100.0)
 	
 	if hunger_percentage < 2:

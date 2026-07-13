@@ -138,6 +138,7 @@ fill_to = Vector2(3, 0)
 
 [node name="bat" type="CharacterBody2D" unique_id=1479203133]
 scale = Vector2(3, 3)
+collision_layer = 3
 script = ExtResource("1_80ydg")
 
 [node name="bat_animation" type="AnimatedSprite2D" parent="." unique_id=1013626824]
