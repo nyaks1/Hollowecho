@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var patrol_radius: float = 200.0
 @export var attack_range: float = 40.0
 
+var ID = "enemy"
 var home_position: Vector2 = Vector2.ZERO
 var target_position: Vector2 = Vector2.ZERO
 var is_chasing: bool = false
@@ -65,11 +66,12 @@ func _on_animation_finished() -> void:
 		sprite.play("Flying")
 
 func _on_detection_area_body_entered(body: CharacterBody2D) -> void:
-	if body.is_in_group("player"):
+	if body.ID == "player":
 		player = body
 		is_chasing = true
 
 func _on_detection_area_body_exited(body: CharacterBody2D) -> void:
-	if body.is_in_group("player"):
+	if body.ID == "player":
 		is_chasing = false
 		player = null
+		

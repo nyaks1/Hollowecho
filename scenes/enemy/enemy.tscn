@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bb2y25rbc0e0c" path="res://assets/enemy/Demon/Idle/IDLE.png" id="5_4efjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(46, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvxgb"]
 atlas = ExtResource("1_gl05p")
@@ -227,25 +228,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lj4"]
+size = Vector2(220, 187)
 
 [node name="enemy" type="CharacterBody2D" unique_id=1537871328]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1575404053]
+scale = Vector2(0.35, 0.35)
 script = ExtResource("1_cwlon")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1075604546]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1075604546]
+position = Vector2(-74, 9)
 shape = SubResource("RectangleShape2D_xrivr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1736088348]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736088348]
 position = Vector2(-63, 5)
 sprite_frames = SubResource("SpriteFrames_xrivr")
 animation = &"Attack"
 frame_progress = 0.33265457
 
-[node name="DetectionArea" type="Area2D" parent="CharacterBody2D" unique_id=35509146]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=35509146]
+position = Vector2(-77, 16)
+scale = Vector2(2.3414388, 2.028573)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1820123882]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1820123882]
+position = Vector2(5, -7)
 shape = SubResource("RectangleShape2D_b1lj4")
 
-[connection signal="body_entered" from="CharacterBody2D/DetectionArea" to="CharacterBody2D" method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="CharacterBody2D/DetectionArea" to="CharacterBody2D" method="_on_detection_area_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

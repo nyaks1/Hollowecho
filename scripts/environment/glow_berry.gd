@@ -7,5 +7,6 @@ func _ready() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.updateHungerPercentage(25)
-	queue_free()
+	if body.ID == "player":
+		body.updateHungerPercentage(25)
+		queue_free()

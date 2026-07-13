@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 	unhandled_input()
 
 func unhandled_input() -> void:
-	if Input.is_key_label_pressed(KEY_W) and not is_active:
+	if Input.is_key_label_pressed(KEY_E) and not is_active:
 		is_active = true
 		
 		# Create a single sequential tween chain

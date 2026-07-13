@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://di5s10c06ar6k"]
 
 [ext_resource type="PackedScene" uid="uid://c17ex7viy04pg" path="res://scenes/player/bat.tscn" id="1_1bi5o"]
+[ext_resource type="Script" uid="uid://3a16j6g3audq" path="res://scripts/levels/level_1.gd" id="1_iau5y"]
 [ext_resource type="Texture2D" uid="uid://dpu7ivafq7rro" path="res://assets/map_level/Pixel-16px Cave/tileset/tileset.png" id="2_c86di"]
 [ext_resource type="AudioStream" uid="uid://vo0vqe3vjda2" path="res://assets/audio/516566__kinoton__dark-dungeon-ambience.wav" id="2_fr5tx"]
 [ext_resource type="Texture2D" uid="uid://bynsfir5nwrk4" path="res://assets/environment/placeholder block.jpg" id="3_3ried"]
@@ -1936,6 +1937,7 @@ sources/5 = SubResource("TileSetAtlasSource_rp0sa")
 sources/6 = SubResource("TileSetAtlasSource_nej1j")
 
 [node name="Level1" type="Node2D" unique_id=93661426]
+script = ExtResource("1_iau5y")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1012896859]
 physics_interpolation_mode = 1

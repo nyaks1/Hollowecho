@@ -95,5 +95,7 @@ position = Vector2(566, 176.00002)
 scale = Vector2(0.41898438, 0.47206873)
 texture = ExtResource("4_1y4tv")
 
+[connection signal="button_down" from="Control/button_container/button1" to="." method="_on_button_1_button_down"]
 [connection signal="pressed" from="Control/button_container/button1" to="." method="_on_button_1_pressed"]
+[connection signal="button_down" from="Control/button_container2/button2" to="." method="_on_button_2_button_down"]
 [connection signal="pressed" from="Control/button_container2/button2" to="." method="_on_button_2_pressed"]

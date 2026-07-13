@@ -20,6 +20,7 @@ var flap = false
 var flap_timer = 0.0
 var left = false
 var right = false
+var ID = "player"
 
 # --- HUNGER VARIABLES ---
 var hunger_bar
@@ -66,7 +67,7 @@ func _physics_process(delta: float) -> void:
 func calculate_dynamic_speed() -> void:
 	# Convert 100% hunger to a 1.0 multiplier. 
 	# The max() function ensures the bat never completely freezes (stops at 30% speed minimum).
-	var stamina_multiplier = max(0.3, hunger_percentage / 100.0)
+	var stamina_multiplier = max(0.2, hunger_percentage / 100.0)
 	
 	current_speed = max_speed * stamina_multiplier
 	current_flap_strength = max_flap_strength * stamina_multiplier
@@ -107,7 +108,9 @@ func trigger_sonar() -> void:
 		tween.tween_property(echo_light, "energy", 0.0, 1.5).set_trans(Tween.TRANS_SINE)
 
 func updateHungerBar(delta: float):
-	hunger_percentage -= delta * 2
+	var hunger_reduction = delta * 1.5
+	
+	hunger_percentage = clamp(hunger_percentage - hunger_reduction, 0.0, 100.0)
 	
 	if hunger_percentage < 2:
 		hunger_bar.set_frame_and_progress(4,0)
