@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://4crb7do4kqq3"]
+
+[ext_resource type="PackedScene" uid="uid://b1wor4aasqa0u" path="res://scenes/enemy/fireball.tscn" id="1_c6g1l"]
+
+[node name="fireball_physics" type="RigidBody2D" unique_id=1724296560]
+
+[node name="Fireball" parent="." unique_id=618855188 instance=ExtResource("1_c6g1l")]
+position = Vector2(-10, 2)
+scale = Vector2(0.92, 0.92)

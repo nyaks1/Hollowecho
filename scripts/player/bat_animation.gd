@@ -5,6 +5,7 @@ var landed = false
 var isFlapping:bool = false
 var isOnFloor = false
 var isMoving = false
+var isDead = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.play("fly")
@@ -13,6 +14,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if isDead:
+		self.play("dead")
+		return
 	
 	if flipSprite:
 		self.flip_h = true

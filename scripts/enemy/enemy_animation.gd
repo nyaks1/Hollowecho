@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 var ID = "enemy"
 var fireball: PackedScene
+var fireball_speed = 80
 var home_position: Vector2 = Vector2.ZERO
 var target_position: Vector2 = Vector2.ZERO
 var is_chasing: bool = false
@@ -23,7 +24,8 @@ func _ready() -> void:
 	home_position = global_position
 	pick_new_target()
 	sprite.animation_looped.connect(_on_animation_looped)
-	fireball = preload("res://scenes/enemy/fireball.tscn")
+	fireball = preload("res://scenes/enemy/fireball_physics.tscn")
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -36,25 +38,25 @@ func _physics_process(delta: float) -> void:
 			
 		move_and_slide()
 		return
-
+	
 	if is_chasing and player != null:
 		var distance_to_player = global_position.distance_to(player.global_position)
-
+	
 		if distance_to_player <= attack_range:
 			start_attack()
 			return
-
+	
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * fly_speed
 	else:
 		var direction = (target_position - global_position).normalized()
 		velocity = direction * fly_speed
-
+	
 		if global_position.distance_to(target_position) < 10.0:
 			pick_new_target()
-
+	
 	move_and_slide()
-
+	
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x > 0
 
@@ -78,9 +80,10 @@ func _on_animation_looped() -> void:
 func fireball_speed_and_direction() -> void:
 	if player != null:
 		var fb = fireball.instantiate()
-		var direction = (player.global_position - global_position).normalized()
+		var direction = (player.global_position - Vector2(1,1) - global_position).normalized()
 		fb.rotation = direction.angle()
-		fb.direction = direction
+		fb.gravity_scale = 0
+		fb.linear_velocity = (player.global_position - Vector2(1,1) - global_position).normalized() * fireball_speed
 		add_child(fb)
 		if !sprite.flip_h:
 			fb.position.x -= 120

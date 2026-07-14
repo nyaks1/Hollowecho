@@ -21,6 +21,7 @@ var flap_timer = 0.0
 var left = false
 var right = false
 var ID = "player"
+var dead = false
 
 # --- HUNGER VARIABLES ---
 var hunger_bar
@@ -34,7 +35,6 @@ func _ready() -> void:
 	sprite.frame_changed.connect(_on_animation_frame_changed)
 	hunger_bar = $CanvasLayer/AnimatedSprite2D
 	hunger_bar.set_frame_and_progress(0,0)
-	name = "bat"
 	if echo_light:
 		echo_light.energy = 0.0
 
@@ -42,6 +42,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y = get_gravity().y * delta * 3
 
+	if dead:
+		sprite.isDead = true
+		velocity.x = 0
+		move_and_slide()
+		return
+		
 	# 1. Update the hunger drain first
 	updateHungerBar(delta)
 	

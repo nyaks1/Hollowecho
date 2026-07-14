@@ -45,14 +45,11 @@ script = ExtResource("1_a4vrn")
 sprite_frames = SubResource("SpriteFrames_ucj85")
 
 [node name="LightAndShadow" parent="." unique_id=759088515 instance=ExtResource("2_l7kyp")]
-modulate = Color(0.45581734, 0.45581734, 0.45581734, 1)
-self_modulate = Color(0.4326237, 0.43262374, 0.4326237, 1)
+modulate = Color(0.3118496, 0.31184962, 0.31184953, 1)
+self_modulate = Color(0.30938497, 0.30938527, 0.3093851, 1)
 position = Vector2(13.000004, 2)
 scale = Vector2(4.67, 4.67)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=312705985]
 position = Vector2(11, -2)
 shape = SubResource("CircleShape2D_l7kyp")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1110939535]
-position = Vector2(5.5, -1)
