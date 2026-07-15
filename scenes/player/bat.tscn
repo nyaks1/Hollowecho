@@ -13,8 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dh1d4ind63d5d" path="res://assets/player/Bat/Idle/Bat_Idle_0.png" id="10_0b0mw"]
 [ext_resource type="Script" uid="uid://c0nr5mdp5413l" path="res://scripts/player/bat_animation.gd" id="12_7otx1"]
 [ext_resource type="Texture2D" uid="uid://inwteyqvghl8" path="res://assets/UI/Pixel UI pack 3/06.png" id="13_fjysm"]
+[ext_resource type="Texture2D" uid="uid://deihbusfnu1rc" path="res://assets/UI/Pixel UI pack 3/05.png" id="14_0qthc"]
 [ext_resource type="AudioStream" uid="uid://4p8gv057jxgb" path="res://assets/audio/561364__geararcanano37__wing-flap-heavy-prototype.ogg" id="14_t4xup"]
 [ext_resource type="AudioStream" uid="uid://b8aogchi0nn4r" path="res://assets/audio/Bat Hissing urbazon_3.ogg" id="15_t4xup"]
+[ext_resource type="PackedScene" uid="uid://dii5lrh88hh21" path="res://scenes/Audio/audio_input.tscn" id="16_4dnaa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_126ht"]
 animations = [{
@@ -129,12 +131,78 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv0bn"]
+atlas = ExtResource("14_0qthc")
+region = Rect2(336, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b0mw"]
+atlas = ExtResource("14_0qthc")
+region = Rect2(288, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co7pl"]
+atlas = ExtResource("14_0qthc")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngjtp"]
+atlas = ExtResource("14_0qthc")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpeqo"]
+atlas = ExtResource("14_0qthc")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx2w5"]
+atlas = ExtResource("14_0qthc")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plwqb"]
+atlas = ExtResource("14_0qthc")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8mg0"]
+atlas = ExtResource("14_0qthc")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2rsb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv0bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b0mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co7pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngjtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpeqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx2w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plwqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8mg0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Gradient" id="Gradient_0qthc"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_21c5p"]
 gradient = SubResource("Gradient_0qthc")
 fill = 1
 fill_to = Vector2(3, 0)
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_0qthc"]
 
 [node name="bat" type="CharacterBody2D" unique_id=1479203133]
 scale = Vector2(3, 3)
@@ -152,10 +220,17 @@ shape = SubResource("RectangleShape2D_126ht")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=847762340]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1962420918]
+[node name="hunger_bar" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1962420918]
 position = Vector2(158, 63)
 scale = Vector2(4.4, 4.4)
 sprite_frames = SubResource("SpriteFrames_d8svk")
+
+[node name="volume_bar" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=888568067]
+position = Vector2(1004, 61)
+scale = Vector2(3.37, 3.37)
+sprite_frames = SubResource("SpriteFrames_d2rsb")
+frame = 3
+frame_progress = 0.0039566252
 
 [node name="FlapSound" type="AudioStreamPlayer" parent="." unique_id=1547795875]
 stream = ExtResource("14_t4xup")
@@ -169,5 +244,11 @@ texture_scale = 20.0
 
 [node name="SonarSound" type="AudioStreamPlayer2D" parent="." unique_id=517521786]
 stream = ExtResource("15_t4xup")
+
+[node name="AudioInput" parent="." unique_id=1500368234 instance=ExtResource("16_4dnaa")]
+stream = SubResource("AudioStreamMicrophone_0qthc")
+autoplay = true
+stream_paused = false
+bus = &"audio_capture"
 
 [connection signal="animation_looped" from="bat_animation" to="bat_animation" method="_on_animation_looped"]

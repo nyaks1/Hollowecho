@@ -4,7 +4,7 @@ extends Area2D
 @onready var collision = $CollisionShape2D
 @onready var light = $LightAndShadow
 
-var direction: Vector2 = Vector2(1,1)
+var direction: Vector2 = Vector2(0,0)
 var collided: bool = false
 var despawn_timer = 3
 var counter = 0

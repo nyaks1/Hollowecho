@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var flap_sound: AudioStreamPlayer = $FlapSound 
 @onready var sprite: AnimatedSprite2D = get_child(0) 
 
+# --- Audio Input Nodes ---
+@onready var audio_input: AudioStreamPlayer = $AudioInput
+@onready var volume_bar: AnimatedSprite2D = $CanvasLayer/volume_bar
+
 # --- ECHOLOCATION NODES ---
 @onready var echo_light: PointLight2D = $EchoLight 
 @onready var sonar_sound: AudioStreamPlayer2D = $SonarSound
@@ -33,7 +37,7 @@ const MAX_SONAR_COOLDOWN = 2.0
 
 func _ready() -> void:
 	sprite.frame_changed.connect(_on_animation_frame_changed)
-	hunger_bar = $CanvasLayer/AnimatedSprite2D
+	hunger_bar = $CanvasLayer/hunger_bar
 	hunger_bar.set_frame_and_progress(0,0)
 	if echo_light:
 		echo_light.energy = 0.0
@@ -50,6 +54,8 @@ func _physics_process(delta: float) -> void:
 		
 	# 1. Update the hunger drain first
 	updateHungerBar(delta)
+	
+	updateVolumeBar()
 	
 	# 2. Recalculate physics strength based on the new hunger level
 	calculate_dynamic_speed()
@@ -112,6 +118,24 @@ func trigger_sonar() -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property(echo_light, "energy", 1.5, 0.05)
 		tween.tween_property(echo_light, "energy", 0.0, 1.5).set_trans(Tween.TRANS_SINE)
+
+func updateVolumeBar():
+	var db = audio_input.peak_db
+	
+	if db < -60:
+		volume_bar.set_frame_and_progress(0,0)
+	elif db < -50:
+		volume_bar.set_frame_and_progress(1,0)
+	elif db < -40:
+		volume_bar.set_frame_and_progress(2,0)
+	elif db < -30:
+		volume_bar.set_frame_and_progress(3,0)
+	elif db < -20:
+		volume_bar.set_frame_and_progress(4,0)
+	elif db < -10:
+		volume_bar.set_frame_and_progress(5,0)
+	elif db < 0:
+		volume_bar.set_frame_and_progress(6,0)
 
 func updateHungerBar(delta: float):
 	var hunger_reduction = delta * 1.2

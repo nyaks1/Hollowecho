@@ -83,8 +83,8 @@ func fireball_speed_and_direction() -> void:
 		var direction = (player.global_position - Vector2(1,1) - global_position).normalized()
 		fb.rotation = direction.angle()
 		fb.gravity_scale = 0
-		fb.linear_velocity = (player.global_position - Vector2(1,1) - global_position).normalized() * fireball_speed
 		add_child(fb)
+		fb.linear_velocity = (player.global_position - fb.global_position).normalized() * fireball_speed
 		if !sprite.flip_h:
 			fb.position.x -= 120
 

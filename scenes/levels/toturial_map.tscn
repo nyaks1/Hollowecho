@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dphjri08eesju" path="res://scenes/environment/guide_post.tscn" id="10_y74aw"]
 [ext_resource type="AudioStream" uid="uid://vo0vqe3vjda2" path="res://assets/audio/516566__kinoton__dark-dungeon-ambience.wav" id="11_p5lly"]
 [ext_resource type="AudioStream" uid="uid://4p8gv057jxgb" path="res://assets/audio/561364__geararcanano37__wing-flap-heavy-prototype.ogg" id="12_0yh0l"]
-[ext_resource type="PackedScene" uid="uid://dii5lrh88hh21" path="res://scenes/Audio/audio_input.tscn" id="13_pf03k"]
 [ext_resource type="PackedScene" uid="uid://dxwq8ed8t377n" path="res://scenes/player/glow_berry.tscn" id="15_y74aw"]
 [ext_resource type="PackedScene" uid="uid://bcqdldppy7h1n" path="res://scenes/enemy/enemy.tscn" id="16_62o0n"]
 
@@ -10021,8 +10020,6 @@ sources/6 = SubResource("TileSetAtlasSource_y74aw")
 sources/7 = SubResource("TileSetAtlasSource_62o0n")
 sources/8 = SubResource("TileSetAtlasSource_7dmul")
 
-[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_j3pel"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_126ht"]
 size = Vector2(224, 17)
 
@@ -10097,17 +10094,10 @@ stream = ExtResource("12_0yh0l")
 autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1270642916]
-visible = false
 color = Color(0.06469653, 0.064696535, 0.0646965, 1)
 
-[node name="AudioInput" parent="." unique_id=1500368234 instance=ExtResource("13_pf03k")]
-stream = SubResource("AudioStreamMicrophone_j3pel")
-autoplay = true
-stream_paused = false
-script = null
-
 [node name="enemy" parent="." unique_id=1537871328 instance=ExtResource("16_62o0n")]
-position = Vector2(447, -155)
+position = Vector2(493.99997, -131)
 
 [node name="enemy3" parent="." unique_id=75345061 instance=ExtResource("16_62o0n")]
 position = Vector2(164, -9.000004)

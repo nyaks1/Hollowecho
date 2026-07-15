@@ -1,17 +1,21 @@
 extends AudioStreamPlayer
 
-var effect
-var recording
+@export var loudness_threshold_db: float = -10.0
 
+var mic_bus_index: int
+var peak_db = -100
 
-func _ready():
-	# We get the index of the "Record" bus.
-	var idx = AudioServer.get_bus_index("audio_capture")
-	# And use it to retrieve its first effect, which has been defined
-	# as an "AudioEffectRecord" resource.
-	effect = AudioServer.get_bus_effect(idx, 0)
-	effect.set_recording_active(true)
+func _ready() -> void:
+	mic_bus_index = AudioServer.get_bus_index("audio_capture")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	print(effect)
+func _process(_delta: float) -> void:
+	# Continuously read the peak decibels
+	peak_db = AudioServer.get_bus_peak_volume_left_db(mic_bus_index, 0)
+	
+	# Check if the volume is louder than your threshold
+	if peak_db > loudness_threshold_db:
+		print("Threshold breached! Current volume: ", peak_db, " dB")
+		
+		# Optional: Convert to linear if you still need a 0.0 to 1.0 value
+		var linear_volume: float = db_to_linear(peak_db)
+		print("Linear equivalent: ", linear_volume)
