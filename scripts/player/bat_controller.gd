@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var flap_sound: AudioStreamPlayer = $FlapSound 
 @onready var sprite: AnimatedSprite2D = get_child(0) 
+@onready var health_bar: AnimatedSprite2D = $CanvasLayer/health_bar
 
 # --- Audio Input Nodes ---
 @onready var audio_input: AudioStreamPlayer = $AudioInput
@@ -16,8 +17,12 @@ extends CharacterBody2D
 @export var max_speed: float = 4000.0
 @export var max_flap_strength: float = -4000.0
 
+@export var max_health: float = 100
+
 var current_speed: float = 0.0
 var current_flap_strength: float = 0.0
+
+var current_health: float
 
 const FLAP_SOUND_WINDOW = 0.25 
 var flap = false
@@ -37,6 +42,7 @@ const MAX_SONAR_COOLDOWN = 2.0
 
 func _ready() -> void:
 	sprite.frame_changed.connect(_on_animation_frame_changed)
+	current_health = max_health
 	hunger_bar = $CanvasLayer/hunger_bar
 	hunger_bar.set_frame_and_progress(0,0)
 	if echo_light:
@@ -120,38 +126,50 @@ func trigger_sonar() -> void:
 		tween.tween_property(echo_light, "energy", 0.0, 1.5).set_trans(Tween.TRANS_SINE)
 
 func updateVolumeBar():
+	
 	var db = audio_input.peak_db
 	
-	if db < -60:
-		volume_bar.set_frame_and_progress(0,0)
-	elif db < -50:
-		volume_bar.set_frame_and_progress(1,0)
-	elif db < -40:
-		volume_bar.set_frame_and_progress(2,0)
-	elif db < -30:
-		volume_bar.set_frame_and_progress(3,0)
-	elif db < -20:
-		volume_bar.set_frame_and_progress(4,0)
-	elif db < -10:
-		volume_bar.set_frame_and_progress(5,0)
-	elif db < 0:
-		volume_bar.set_frame_and_progress(6,0)
+	var frame = (
+		0 if db < -60 else
+		1 if db < -50 else
+		2 if db < -40 else
+		3 if db < -30 else
+		4 if db < -20 else
+		5 if db < -10 else 
+		6
+	)
+	volume_bar.set_frame_and_progress(frame,0)
 
 func updateHungerBar(delta: float):
 	var hunger_reduction = delta * 1.2
 	hunger_percentage = clamp(hunger_percentage - hunger_reduction, 0.0, 100.0)
 	
-	if hunger_percentage < 2:
-		hunger_bar.set_frame_and_progress(4,0)
-	elif hunger_percentage <= 25:
-		hunger_bar.set_frame_and_progress(3,0)
-	elif hunger_percentage <= 50:
-		hunger_bar.set_frame_and_progress(2,0)
-	elif hunger_percentage <= 75:
-		hunger_bar.set_frame_and_progress(1,0)
-	elif hunger_percentage > 75:
-		hunger_bar.set_frame_and_progress(0,0)
-	
+	var frame = (
+		4 if hunger_percentage < 2 else
+		3 if hunger_percentage <= 25 else
+		2 if hunger_percentage <= 50 else
+		1 if hunger_percentage <= 75 else
+		0
+	)
+	hunger_bar.set_frame_and_progress(frame, 0)
+
+func updateHealth(amount: float):
+	var updated_health = current_health + amount
+	current_health = clamp(updated_health, 0, 100)
+	if current_health == 0:
+		dead = true
+	updateHealthBar()
+
+func updateHealthBar():
+	var frame = (
+	0 if current_health == 0 else
+	1 if current_health <= 25 else
+	2 if current_health <= 50 else
+	3 if current_health <= 75 else
+	4
+	)
+	health_bar.set_frame_and_progress(frame, 0)
+
 func updateHungerPercentage(amount :float):
 	# Clamp ensures the percentage never exceeds 100
 	hunger_percentage = clamp(hunger_percentage + amount, 0.0, 100.0)

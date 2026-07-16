@@ -8,7 +8,6 @@ var scene_transition
 func _ready() -> void:
 	scene_transition = $Level_transition
 
-
 func _on_level_transition_body_entered(body: CharacterBody2D) -> void:
 	if body.ID == "player":
 		next_level = true

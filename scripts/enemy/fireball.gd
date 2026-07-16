@@ -16,14 +16,14 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	counter += delta
-	despawn_fireball(delta)
+	despawn_fireball()
 	
-func despawn_fireball(delta: float) -> void:
+func despawn_fireball() -> void:
 	if counter > despawn_timer:
 		queue_free()
 	
 func on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		if body.ID == "player":
-			body.dead = true
+			body.updateHealth(-25)
 			queue_free()

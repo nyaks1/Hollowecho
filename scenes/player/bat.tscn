@@ -195,6 +195,49 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qthc"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(192, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gfeo"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(144, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c74hb"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(96, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g3s7"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(48, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0u0j"]
+atlas = ExtResource("13_fjysm")
+region = Rect2(0, 48, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hxoa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qthc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gfeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c74hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g3s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0u0j")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Gradient" id="Gradient_0qthc"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_21c5p"]
@@ -221,7 +264,7 @@ shape = SubResource("RectangleShape2D_126ht")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=847762340]
 
 [node name="hunger_bar" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1962420918]
-position = Vector2(158, 63)
+position = Vector2(152.99998, 76)
 scale = Vector2(4.4, 4.4)
 sprite_frames = SubResource("SpriteFrames_d8svk")
 
@@ -231,6 +274,13 @@ scale = Vector2(3.37, 3.37)
 sprite_frames = SubResource("SpriteFrames_d2rsb")
 frame = 3
 frame_progress = 0.0039566252
+
+[node name="health_bar" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=923701932]
+position = Vector2(160, 38)
+scale = Vector2(4.45, 4.45)
+sprite_frames = SubResource("SpriteFrames_8hxoa")
+frame = 4
+frame_progress = 0.5437255
 
 [node name="FlapSound" type="AudioStreamPlayer" parent="." unique_id=1547795875]
 stream = ExtResource("14_t4xup")
