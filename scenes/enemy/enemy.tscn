@@ -228,23 +228,23 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dmul"]
-radius = 104.9415
+radius = 105.09833
 
 [node name="enemy" type="CharacterBody2D" unique_id=1537871328]
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_cwlon")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1075604546]
-position = Vector2(-74, 9)
+position = Vector2(-0.07143402, -1.5)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736088348]
-position = Vector2(-63, 5)
+position = Vector2(10.928566, -5.5)
 sprite_frames = SubResource("SpriteFrames_xrivr")
 animation = &"Idle"
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=35509146]
-position = Vector2(-77, 16)
+position = Vector2(-3.0714188, 5.499999)
 scale = Vector2(2.3414388, 2.028573)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1820123882]

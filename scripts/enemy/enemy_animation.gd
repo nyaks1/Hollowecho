@@ -2,21 +2,23 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var fly_speed: float = 50.0
+@export var fly_speed: float = 40.0
 # how far from start it can wander
 @export var patrol_radius: float = 200.0
 @export var attack_range: float = 100.0
 
 var ID = "enemy"
 var fireball: PackedScene
-var fireball_speed = 80
+var fireball_speed = 90
 var home_position: Vector2 = Vector2.ZERO
 var target_position: Vector2 = Vector2.ZERO
 var is_chasing: bool = false
 var is_attacking: bool = false
 var player: CharacterBody2D = null
 var fireball_timer = 2
-var count = 1
+var count = 1 
+var current_position
+var last_recordec_position
 
 func _ready() -> void:
 	print(get_children())
@@ -25,7 +27,6 @@ func _ready() -> void:
 	pick_new_target()
 	sprite.animation_looped.connect(_on_animation_looped)
 	fireball = preload("res://scenes/enemy/fireball_physics.tscn")
-
 
 func _physics_process(delta: float) -> void:
 	
@@ -51,12 +52,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		var direction = (target_position - global_position).normalized()
 		velocity = direction * fly_speed
-	
+		
 		if global_position.distance_to(target_position) < 10.0:
 			pick_new_target()
 	
+		if position == last_recordec_position:
+				pick_new_target()
+		last_recordec_position = position
 	move_and_slide()
-	
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x > 0
 
@@ -71,7 +74,7 @@ func pick_new_target() -> void:
 func start_attack() -> void:
 	is_attacking = true
 	sprite.play("Attack")
-	
+
 func _on_animation_looped() -> void:
 	if sprite.animation == "Attack":
 		is_attacking = false
@@ -83,10 +86,12 @@ func fireball_speed_and_direction() -> void:
 		var direction = (player.global_position - Vector2(1,1) - global_position).normalized()
 		fb.rotation = direction.angle()
 		fb.gravity_scale = 0
-		add_child(fb)
+		get_parent().add_child(fb)
+		fb.position = position
 		fb.linear_velocity = (player.global_position - fb.global_position).normalized() * fireball_speed
-		if !sprite.flip_h:
-			fb.position.x -= 120
+
+func screeching(location: Vector2):
+	target_position = location
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:

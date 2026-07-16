@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var flap_sound: AudioStreamPlayer = $FlapSound 
 @onready var sprite: AnimatedSprite2D = get_child(0) 
 @onready var health_bar: AnimatedSprite2D = $CanvasLayer/health_bar
+@onready var screech_range: Area2D = $Screech_range
 
 # --- Audio Input Nodes ---
 @onready var audio_input: AudioStreamPlayer = $AudioInput
@@ -24,6 +25,8 @@ var current_flap_strength: float = 0.0
 
 var current_health: float
 
+# --- Emit a signal when the bat screeches ---
+
 const FLAP_SOUND_WINDOW = 0.25 
 var flap = false
 var flap_timer = 0.0
@@ -31,6 +34,7 @@ var left = false
 var right = false
 var ID = "player"
 var dead = false
+var screeching = true
 
 # --- HUNGER VARIABLES ---
 var hunger_bar
@@ -51,7 +55,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y = get_gravity().y * delta * 3
-
+	
 	if dead:
 		sprite.isDead = true
 		velocity.x = 0
@@ -68,7 +72,14 @@ func _physics_process(delta: float) -> void:
 	
 	# 3. Process inputs with the newly calculated speeds
 	handleInput(delta)
-
+	
+	if screeching:
+		for body in screech_range.get_overlapping_bodies():
+			if body is CharacterBody2D and body != self:
+				body.screeching(position)
+				
+	screeching = false
+	
 	if flap_timer > 0.0:
 		flap_timer -= delta
 		flap = true
@@ -102,6 +113,7 @@ func handleInput(delta: float) -> void:
 	# The Echolocation Trigger (E Key)
 	if Input.is_key_pressed(KEY_E) and current_sonar_cooldown <= 0.0:
 		trigger_sonar()
+		screeching = true
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:

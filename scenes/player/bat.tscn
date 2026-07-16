@@ -247,6 +247,9 @@ fill_to = Vector2(3, 0)
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_0qthc"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2rsb"]
+radius = 273.07346
+
 [node name="bat" type="CharacterBody2D" unique_id=1479203133]
 scale = Vector2(3, 3)
 collision_layer = 3
@@ -254,7 +257,7 @@ script = ExtResource("1_80ydg")
 
 [node name="bat_animation" type="AnimatedSprite2D" parent="." unique_id=1013626824]
 sprite_frames = SubResource("SpriteFrames_126ht")
-animation = &"dead"
+animation = &"idle"
 script = ExtResource("12_7otx1")
 
 [node name="bat_collision_area" type="CollisionShape2D" parent="." unique_id=1526826975]
@@ -300,5 +303,10 @@ stream = SubResource("AudioStreamMicrophone_0qthc")
 autoplay = true
 stream_paused = false
 bus = &"audio_capture"
+
+[node name="Screech_range" type="Area2D" parent="." unique_id=1919803383]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screech_range" unique_id=1651672483]
+shape = SubResource("CircleShape2D_d2rsb")
 
 [connection signal="animation_looped" from="bat_animation" to="bat_animation" method="_on_animation_looped"]
