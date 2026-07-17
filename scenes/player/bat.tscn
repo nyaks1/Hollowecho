@@ -248,7 +248,7 @@ fill_to = Vector2(3, 0)
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_0qthc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2rsb"]
-radius = 273.07346
+radius = 312.33353
 
 [node name="bat" type="CharacterBody2D" unique_id=1479203133]
 scale = Vector2(3, 3)

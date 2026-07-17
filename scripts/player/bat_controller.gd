@@ -30,6 +30,7 @@ var current_health: float
 const FLAP_SOUND_WINDOW = 0.25 
 var flap = false
 var flap_timer = 0.0
+var gravity_multiplyer = 3
 var left = false
 var right = false
 var ID = "player"
@@ -54,7 +55,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y = get_gravity().y * delta * 3
+		velocity.y = get_gravity().y * delta * gravity_multiplyer
 	
 	if dead:
 		sprite.isDead = true
@@ -105,7 +106,7 @@ func handleInput(delta: float) -> void:
 	left = Input.is_key_label_pressed(KEY_A)
 	right = Input.is_key_label_pressed(KEY_D)
 
-	if Input.is_action_pressed("ui_accept"): 
+	if Input.is_action_pressed("ui_up") or Input.is_key_label_pressed(KEY_W) or Input.is_action_pressed("ui_accept"): 
 		# Now using dynamic flap strength instead of the static constant
 		velocity.y = current_flap_strength * delta
 		flap_timer = FLAP_SOUND_WINDOW 
@@ -113,7 +114,13 @@ func handleInput(delta: float) -> void:
 	# The Echolocation Trigger (E Key)
 	if Input.is_key_pressed(KEY_E) and current_sonar_cooldown <= 0.0:
 		trigger_sonar()
+		updateHungerBar(5)
 		screeching = true
+		
+	if Input.is_action_pressed("ui_down") or Input.is_key_label_pressed(KEY_S):
+		gravity_multiplyer = 4
+	else:
+		gravity_multiplyer = 3
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -153,7 +160,7 @@ func updateVolumeBar():
 	volume_bar.set_frame_and_progress(frame,0)
 
 func updateHungerBar(delta: float):
-	var hunger_reduction = delta * 1.2
+	var hunger_reduction = delta * 0.5
 	hunger_percentage = clamp(hunger_percentage - hunger_reduction, 0.0, 100.0)
 	
 	var frame = (

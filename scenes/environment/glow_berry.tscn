@@ -15,11 +15,13 @@ script = ExtResource("1_8cpdh")
 texture = ExtResource("1_mobr0")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1436719792]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1481002613]
 shape = SubResource("CircleShape2D_126ht")
 
 [node name="LightAndShadow" parent="." unique_id=759088515 instance=ExtResource("2_8cpdh")]
-scale = Vector2(0.3, 0.3)
+position = Vector2(0, 1.6666671)
+scale = Vector2(0.67, 0.67)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

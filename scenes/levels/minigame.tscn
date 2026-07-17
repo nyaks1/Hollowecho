@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dpu7ivafq7rro" path="res://assets/map_level/Pixel-16px Cave/tileset/tileset.png" id="1_6t1od"]
 [ext_resource type="Texture2D" uid="uid://c01avyj6uqkj4" path="res://assets/map_level/Pixel-16px Cave/parallax/bg.png" id="1_amsiu"]
-[ext_resource type="PackedScene" uid="uid://dxwq8ed8t377n" path="res://scenes/player/glow_berry.tscn" id="2_khut6"]
+[ext_resource type="PackedScene" uid="uid://dxwq8ed8t377n" path="res://scenes/environment/glow_berry.tscn" id="2_khut6"]
 [ext_resource type="PackedScene" uid="uid://c17ex7viy04pg" path="res://scenes/player/bat.tscn" id="2_plemq"]
 [ext_resource type="Texture2D" uid="uid://dhgju6j4i682j" path="res://assets/map_level/Pixel-16px Cave/parallax/parallax1.png" id="2_wj2rv"]
 [ext_resource type="Texture2D" uid="uid://cj567re2ykog5" path="res://assets/map_level/Pixel-16px Cave/parallax/parallax2.png" id="3_tih84"]

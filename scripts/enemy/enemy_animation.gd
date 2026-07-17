@@ -16,7 +16,7 @@ var is_chasing: bool = false
 var is_attacking: bool = false
 var player: CharacterBody2D = null
 var fireball_timer = 2
-var count = 1 
+var count = 2
 var current_position
 var last_recordec_position
 

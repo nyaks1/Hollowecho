@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://di5s10c06ar6k"]
 
 [ext_resource type="PackedScene" uid="uid://c17ex7viy04pg" path="res://scenes/player/bat.tscn" id="1_1bi5o"]
+[ext_resource type="Script" uid="uid://3a16j6g3audq" path="res://scripts/levels/level_1.gd" id="1_nej1j"]
 [ext_resource type="Texture2D" uid="uid://br0gixq8byu2d" path="res://assets/UI/Parallax_Backgrounds_Cave/7.png" id="1_rp0sa"]
 [ext_resource type="Texture2D" uid="uid://dpu7ivafq7rro" path="res://assets/map_level/Pixel-16px Cave/tileset/tileset.png" id="2_c86di"]
 [ext_resource type="AudioStream" uid="uid://vo0vqe3vjda2" path="res://assets/audio/516566__kinoton__dark-dungeon-ambience.wav" id="2_fr5tx"]
@@ -11,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://c01avyj6uqkj4" path="res://assets/map_level/Pixel-16px Cave/parallax/bg.png" id="8_bul7q"]
 [ext_resource type="Texture2D" uid="uid://cj567re2ykog5" path="res://assets/map_level/Pixel-16px Cave/parallax/parallax2.png" id="9_iau5y"]
 [ext_resource type="PackedScene" uid="uid://gnttf5fm40xi" path="res://light-and-shadow/light-and-shadow.tscn" id="10_iau5y"]
+[ext_resource type="PackedScene" uid="uid://dxwq8ed8t377n" path="res://scenes/environment/glow_berry.tscn" id="13_xwg8e"]
+[ext_resource type="PackedScene" uid="uid://bcqdldppy7h1n" path="res://scenes/enemy/enemy.tscn" id="14_05r5e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ried"]
 texture = ExtResource("2_c86di")
@@ -1938,6 +1941,7 @@ sources/5 = SubResource("TileSetAtlasSource_rp0sa")
 sources/6 = SubResource("TileSetAtlasSource_nej1j")
 
 [node name="Level1" type="Node2D" unique_id=93661426]
+script = ExtResource("1_nej1j")
 
 [node name="background_filler" type="Sprite2D" parent="." unique_id=2097270609]
 modulate = Color(0, 0, 0, 1)
@@ -1964,10 +1968,10 @@ layer_2/tile_data = PackedInt32Array(3735619, 524288, 1342177280, 3801155, 58982
 light_mask = 2
 visibility_layer = 2
 position = Vector2(208, 704)
-scale = Vector2(1, 1)
+scale = Vector2(0.6, 0.6)
 
 [node name="Camera2D" type="Camera2D" parent="bat" unique_id=786988151]
-zoom = Vector2(2.48, 2.48)
+zoom = Vector2(3.17, 3.17)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="bat" unique_id=263453269]
 stream = ExtResource("2_fr5tx")
@@ -1978,8 +1982,170 @@ stream = ExtResource("3_b5w3f")
 autoplay = true
 
 [node name="LightAndShadow" parent="bat" unique_id=759088515 instance=ExtResource("10_iau5y")]
-position = Vector2(4, 17)
+position = Vector2(-8.333313, 6.666641)
+rotation = 1.246165
+scale = Vector2(1.305, 1.305)
+skew = -0.57595867
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=762996688]
-visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="Berries" type="Node" parent="." unique_id=800908015]
+
+[node name="GlowBerry19" parent="Berries" unique_id=1381654064 instance=ExtResource("13_xwg8e")]
+position = Vector2(376, -527)
+scale = Vector2(0.36, 0.36)
+
+[node name="GlowBerry17" parent="Berries" unique_id=752245568 instance=ExtResource("13_xwg8e")]
+position = Vector2(2539, 947)
+
+[node name="GlowBerry16" parent="Berries" unique_id=540082570 instance=ExtResource("13_xwg8e")]
+position = Vector2(1991, 1168)
+
+[node name="GlowBerry15" parent="Berries" unique_id=736940674 instance=ExtResource("13_xwg8e")]
+position = Vector2(1067, 943)
+
+[node name="GlowBerry14" parent="Berries" unique_id=1208915537 instance=ExtResource("13_xwg8e")]
+position = Vector2(1555, 897)
+
+[node name="GlowBerry13" parent="Berries" unique_id=1883074046 instance=ExtResource("13_xwg8e")]
+position = Vector2(2068, 545)
+
+[node name="GlowBerry12" parent="Berries" unique_id=1181770465 instance=ExtResource("13_xwg8e")]
+position = Vector2(1801, 625)
+
+[node name="GlowBerry11" parent="Berries" unique_id=737903716 instance=ExtResource("13_xwg8e")]
+position = Vector2(1612, -321)
+
+[node name="GlowBerry10" parent="Berries" unique_id=1351654059 instance=ExtResource("13_xwg8e")]
+position = Vector2(1270, -465)
+
+[node name="GlowBerry9" parent="Berries" unique_id=542877550 instance=ExtResource("13_xwg8e")]
+position = Vector2(1488, -96)
+
+[node name="GlowBerry8" parent="Berries" unique_id=789386994 instance=ExtResource("13_xwg8e")]
+position = Vector2(1177, -112.00001)
+
+[node name="GlowBerry7" parent="Berries" unique_id=1675232943 instance=ExtResource("13_xwg8e")]
+position = Vector2(1313, 164)
+
+[node name="GlowBerry6" parent="Berries" unique_id=1932827284 instance=ExtResource("13_xwg8e")]
+position = Vector2(1411, 468)
+
+[node name="GlowBerry5" parent="Berries" unique_id=1318326505 instance=ExtResource("13_xwg8e")]
+position = Vector2(1078, 354)
+
+[node name="GlowBerry4" parent="Berries" unique_id=812895727 instance=ExtResource("13_xwg8e")]
+position = Vector2(747, -47)
+
+[node name="GlowBerry3" parent="Berries" unique_id=1670895237 instance=ExtResource("13_xwg8e")]
+position = Vector2(610, 113)
+
+[node name="GlowBerry2" parent="Berries" unique_id=260350936 instance=ExtResource("13_xwg8e")]
+position = Vector2(918, -191)
+
+[node name="GlowBerry" parent="Berries" unique_id=591956842 instance=ExtResource("13_xwg8e")]
+position = Vector2(777, -526)
+
+[node name="GlowBerry20" parent="Berries" unique_id=2037305080 instance=ExtResource("13_xwg8e")]
+position = Vector2(-10, -445)
+scale = Vector2(0.36, 0.36)
+
+[node name="GlowBerry22" parent="Berries" unique_id=91169700 instance=ExtResource("13_xwg8e")]
+position = Vector2(40.000015, 212.00003)
+scale = Vector2(0.36, 0.36)
+
+[node name="enemy" parent="Berries" unique_id=1537871328 instance=ExtResource("14_05r5e")]
+position = Vector2(4213, -102.00003)
+
+[node name="enemy2" parent="Berries" unique_id=1557459055 instance=ExtResource("14_05r5e")]
+position = Vector2(3605, -930)
+
+[node name="GlowBerry25" parent="Berries" unique_id=699423060 instance=ExtResource("13_xwg8e")]
+position = Vector2(3427, -858)
+
+[node name="GlowBerry26" parent="Berries" unique_id=1965713531 instance=ExtResource("13_xwg8e")]
+position = Vector2(927, -228)
+
+[node name="GlowBerry18" parent="Berries" unique_id=924291297 instance=ExtResource("13_xwg8e")]
+position = Vector2(267, -271)
+
+[node name="GlowBerry21" parent="Berries" unique_id=736899438 instance=ExtResource("13_xwg8e")]
+position = Vector2(-39, -110)
+
+[node name="GlowBerry23" parent="Berries" unique_id=334785562 instance=ExtResource("13_xwg8e")]
+position = Vector2(140, 531)
+
+[node name="GlowBerry24" parent="Berries" unique_id=1003303880 instance=ExtResource("13_xwg8e")]
+position = Vector2(527, -414)
+
+[node name="GlowBerry27" parent="Berries" unique_id=714895062 instance=ExtResource("13_xwg8e")]
+position = Vector2(2146, -687)
+
+[node name="Enemies" type="Node" parent="." unique_id=565603886]
+
+[node name="enemy21" parent="Enemies" unique_id=574575210 instance=ExtResource("14_05r5e")]
+position = Vector2(1621, 759)
+
+[node name="enemy16" parent="Enemies" unique_id=1327384510 instance=ExtResource("14_05r5e")]
+position = Vector2(2387, -586)
+
+[node name="enemy13" parent="Enemies" unique_id=177202347 instance=ExtResource("14_05r5e")]
+position = Vector2(4285, -642)
+
+[node name="enemy" parent="Enemies" unique_id=1738234598 instance=ExtResource("14_05r5e")]
+position = Vector2(405, -372)
+
+[node name="enemy2" parent="Enemies" unique_id=1047388423 instance=ExtResource("14_05r5e")]
+position = Vector2(909, -610)
+
+[node name="enemy3" parent="Enemies" unique_id=1724119848 instance=ExtResource("14_05r5e")]
+position = Vector2(1025, 251)
+
+[node name="enemy4" parent="Enemies" unique_id=213734656 instance=ExtResource("14_05r5e")]
+position = Vector2(1655, -387)
+
+[node name="enemy5" parent="Enemies" unique_id=793984247 instance=ExtResource("14_05r5e")]
+position = Vector2(1529, 400)
+
+[node name="enemy6" parent="Enemies" unique_id=1189605007 instance=ExtResource("14_05r5e")]
+position = Vector2(1232, 905)
+
+[node name="enemy7" parent="Enemies" unique_id=1573081556 instance=ExtResource("14_05r5e")]
+position = Vector2(2006, 39)
+
+[node name="enemy8" parent="Enemies" unique_id=542311861 instance=ExtResource("14_05r5e")]
+position = Vector2(2462, 778)
+
+[node name="enemy9" parent="Enemies" unique_id=1555466878 instance=ExtResource("14_05r5e")]
+position = Vector2(3585, 33)
+
+[node name="enemy10" parent="Enemies" unique_id=111693925 instance=ExtResource("14_05r5e")]
+position = Vector2(4632, 846)
+
+[node name="enemy11" parent="Enemies" unique_id=1798383068 instance=ExtResource("14_05r5e")]
+position = Vector2(3843, 1046)
+
+[node name="enemy12" parent="Enemies" unique_id=502131523 instance=ExtResource("14_05r5e")]
+position = Vector2(5875, -205)
+
+[node name="enemy14" parent="Enemies" unique_id=444710016 instance=ExtResource("14_05r5e")]
+position = Vector2(5238, -138)
+
+[node name="enemy15" parent="Enemies" unique_id=14771158 instance=ExtResource("14_05r5e")]
+position = Vector2(5334, -760)
+
+[node name="enemy17" parent="Enemies" unique_id=993542073 instance=ExtResource("14_05r5e")]
+position = Vector2(225, -558)
+
+[node name="enemy18" parent="Enemies" unique_id=540031987 instance=ExtResource("14_05r5e")]
+position = Vector2(922, 102)
+
+[node name="enemy19" parent="Enemies" unique_id=405788493 instance=ExtResource("14_05r5e")]
+position = Vector2(830, -171)
+
+[node name="enemy20" parent="Enemies" unique_id=900494758 instance=ExtResource("14_05r5e")]
+position = Vector2(1763, 180)
+
+[node name="enemy22" parent="Enemies" unique_id=1251642538 instance=ExtResource("14_05r5e")]
+position = Vector2(2748, 461)
