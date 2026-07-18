@@ -242,6 +242,7 @@ shape = SubResource("RectangleShape2D_xrivr")
 position = Vector2(10.928566, -5.5)
 sprite_frames = SubResource("SpriteFrames_xrivr")
 animation = &"Idle"
+frame_progress = 0.3788232
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=35509146]
 position = Vector2(-3.0714188, 5.499999)
