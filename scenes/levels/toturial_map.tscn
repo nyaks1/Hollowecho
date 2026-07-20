@@ -17,6 +17,13 @@
 [ext_resource type="AudioStream" uid="uid://4p8gv057jxgb" path="res://assets/audio/561364__geararcanano37__wing-flap-heavy-prototype.ogg" id="12_0yh0l"]
 [ext_resource type="PackedScene" uid="uid://dxwq8ed8t377n" path="res://scenes/environment/glow_berry.tscn" id="15_y74aw"]
 [ext_resource type="PackedScene" uid="uid://bcqdldppy7h1n" path="res://scenes/enemy/enemy.tscn" id="16_62o0n"]
+[ext_resource type="Texture2D" uid="uid://dkw11p1pxwvg6" path="res://assets/UI/KEYBOARD/KEYS/ARROWUP.png" id="18_1ax4x"]
+[ext_resource type="Texture2D" uid="uid://ddlscvvcmma16" path="res://assets/UI/KEYBOARD/KEYS/ARROWLEFT.png" id="19_bb8ol"]
+[ext_resource type="Texture2D" uid="uid://dqjv05slviqrf" path="res://assets/UI/KEYBOARD/KEYS/ARROWRIGHT.png" id="19_ov5ot"]
+[ext_resource type="FontFile" uid="uid://dtjqepu45hmi1" path="res://assets/UI/KEYBOARD/KEYS/LowresPixel-Regular.otf" id="20_vpq04"]
+[ext_resource type="Texture2D" uid="uid://2ckvp5o1jgbc" path="res://assets/UI/KEYBOARD/KEYS/SPACE.png" id="21_vpq04"]
+[ext_resource type="Texture2D" uid="uid://dhtsaua0kfcaj" path="res://assets/UI/KEYBOARD/KEYS/E.png" id="23_10egj"]
+[ext_resource type="Texture2D" uid="uid://do36gg7ga88qt" path="res://assets/UI/Help.png" id="24_cqlb1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d31bw"]
 texture = ExtResource("1_cx8gf")
@@ -10030,7 +10037,7 @@ script = ExtResource("1_62o0n")
 [node name="background_filler" type="Sprite2D" parent="." unique_id=762346206]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(659, -70)
+position = Vector2(996.00006, -144)
 scale = Vector2(-10.652599, 13.117084)
 texture = ExtResource("2_7dmul")
 
@@ -10102,7 +10109,6 @@ position = Vector2(722.00006, -66)
 position = Vector2(921, -242)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1270642916]
-visible = false
 color = Color(0.06469653, 0.064696535, 0.0646965, 1)
 
 [node name="enemy" parent="." unique_id=1537871328 instance=ExtResource("16_62o0n")]
@@ -10129,3 +10135,124 @@ position = Vector2(-242, -165)
 
 [node name="enemy4" parent="." unique_id=1050544911 instance=ExtResource("16_62o0n")]
 position = Vector2(1010, 105)
+
+[node name="TutorialUI" type="CanvasLayer" parent="." unique_id=1985447511]
+visible = false
+
+[node name="move turoral" type="Control" parent="TutorialUI" unique_id=1900679904]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="left_arrow" type="Sprite2D" parent="TutorialUI/move turoral" unique_id=2012523053]
+position = Vector2(441, 561)
+scale = Vector2(4.645, 4.645)
+texture = ExtResource("19_bb8ol")
+
+[node name="right_arrow" type="Sprite2D" parent="TutorialUI/move turoral" unique_id=1809975447]
+position = Vector2(677, 561)
+scale = Vector2(4.645, 4.645)
+texture = ExtResource("19_ov5ot")
+
+[node name="move_label" type="Label" parent="TutorialUI/move turoral" unique_id=1577066544]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 539.0
+offset_right = 546.0
+offset_bottom = 556.3913
+scale = Vector2(2.645, 2.645)
+theme_override_fonts/font = ExtResource("20_vpq04")
+theme_override_font_sizes/font_size = 15
+text = "press"
+
+[node name="second tutorial" type="Control" parent="TutorialUI" unique_id=1330529434]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="up_button" type="Sprite2D" parent="TutorialUI/second tutorial" unique_id=2018930047]
+position = Vector2(635, 586)
+scale = Vector2(4.645, 4.645)
+texture = ExtResource("18_1ax4x")
+
+[node name="space_button" type="Sprite2D" parent="TutorialUI/second tutorial" unique_id=2113712324]
+position = Vector2(419, 586)
+scale = Vector2(4.645, 4.645)
+texture = ExtResource("21_vpq04")
+
+[node name="move_label2" type="Label" parent="TutorialUI/second tutorial" unique_id=655776080]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 481.00003
+offset_right = 524.0
+offset_bottom = 498.39133
+scale = Vector2(2.645, 2.645)
+theme_override_fonts/font = ExtResource("20_vpq04")
+theme_override_font_sizes/font_size = 15
+text = "press"
+
+[node name="move_label3" type="Label" parent="TutorialUI/second tutorial" unique_id=557176250]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 563.0
+offset_right = 539.14746
+offset_bottom = 580.3913
+scale = Vector2(2.645, 2.645)
+theme_override_fonts/font = ExtResource("20_vpq04")
+theme_override_font_sizes/font_size = 15
+text = "or"
+
+[node name="Echo tutorial" type="Control" parent="TutorialUI" unique_id=1464612870]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="move_label2" type="Label" parent="TutorialUI/Echo tutorial" unique_id=1905296528]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 505.0
+offset_right = 461.0
+offset_bottom = 522.3913
+scale = Vector2(2.645, 2.645)
+theme_override_fonts/font = ExtResource("20_vpq04")
+theme_override_font_sizes/font_size = 15
+text = "press"
+
+[node name="echo_button" type="Sprite2D" parent="TutorialUI/Echo tutorial" unique_id=528295784]
+position = Vector2(601, 529)
+scale = Vector2(4.645, 4.645)
+texture = ExtResource("23_10egj")
+
+[node name="Help page" type="Control" parent="TutorialUI" unique_id=2050723856]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Help" type="Sprite2D" parent="TutorialUI/Help page" unique_id=91973497]
+self_modulate = Color(1, 1, 1, 0.8235294)
+position = Vector2(595.5, 342)
+scale = Vector2(1.9943609, 2.0743802)
+texture = ExtResource("24_cqlb1")
+
+[node name="Goal page" type="Control" parent="TutorialUI" unique_id=1685280504]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="move_label3" type="Label" parent="TutorialUI/Goal page" unique_id=60176894]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 95.0
+offset_right = 487.0
+offset_bottom = 112.3913
+scale = Vector2(3.395, 3.395)
+theme_override_fonts/font = ExtResource("20_vpq04")
+theme_override_font_sizes/font_size = 15
+text = "Escape the cave!"
